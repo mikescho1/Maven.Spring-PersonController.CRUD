@@ -6,10 +6,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RestController
 public class PersonController {
-    @Autowired
+
     PersonService personService;
+
+    public PersonController(PersonService personService)    {
+        this.personService = personService;
+    }
 
     @PostMapping("/people")
     public ResponseEntity<Person> createPerson(@RequestBody Person p)   {
@@ -21,7 +25,7 @@ public class PersonController {
     }
     @GetMapping("/people")
     public ResponseEntity<Iterable<Person>> getPersonList(){
-        return new ResponseEntity<Person>(personService.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(personService.findAll(), HttpStatus.OK);
     }
     @PutMapping("/people/{id}")
     public ResponseEntity<Person> updatePerson(@PathVariable Person p, Integer id)   {

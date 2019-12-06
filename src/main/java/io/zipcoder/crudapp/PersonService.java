@@ -8,7 +8,7 @@ import java.util.ArrayList;
 @Service
 public class PersonService {
 
-    @Autowired
+
     PersonRepository personRepository;
     Integer id;
 
@@ -37,8 +37,9 @@ public class PersonService {
 
     public Person createPerson(Person person)   {
         return personRepository.save(person);
-
     }
+
+
 
 
 }
