@@ -20,8 +20,11 @@ public class PersonService {
         return personRepository.findOne(id);
     }
 
-    public Person savePerson(Person person)   {
-        return personRepository.save(person);
+    public Person savePerson(Person person, Integer id)   {
+         Person personInDb = personRepository.findOne(id);
+         personInDb.setFirstName(personInDb.getFirstName());
+         personInDb.setLastName(personInDb.getLastName());
+        return personRepository.save(personInDb);
 
     }
 
