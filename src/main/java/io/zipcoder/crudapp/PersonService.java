@@ -25,7 +25,6 @@ public class PersonService {
          personInDb.setFirstName(personInDb.getFirstName());
          personInDb.setLastName(personInDb.getLastName());
         return personRepository.save(personInDb);
-
     }
 
     public void deletePerson(Person person) {
@@ -40,8 +39,6 @@ public class PersonService {
         return personRepository.save(person);
 
     }
-
-
 
 
 }
